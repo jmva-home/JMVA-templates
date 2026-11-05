@@ -86,7 +86,7 @@ All authors of the paper should have contributed with theoretical results.\\\sma
 
 
 \newenvironment{Proof}{\paragraph{\textbf{\upshape Proof:}}}{\hfill$\square$}
-\newenvironment{Proofx}{\paragraph{\textbf{\upshape Proof of Theorem \ref{}:}}}{\hfill$\square$}
+\newenvironment{Proofx}[1]{\paragraph{\textbf{\upshape Proof of Theorem \ref{#1}:}}}{\hfill$\square$}
 
 \def\E{\mbox{${\rm E}$}}
 \def\D{\mbox{${\rm D}$}}
@@ -116,7 +116,7 @@ Here are our methods. Often it is natural to define notion and notations in this
 
 Here are our results. The results should usually be presented as theorems, propositions, together with their proofs.
 
-\begin{theorem} Assume .....
+\begin{theorem}\label{thm:example} Assume .....
 \end{theorem}
 
 Note that there are two types of proof environments.
@@ -126,7 +126,7 @@ Assume \( x > 0 \). Then \( x^2 > 0 \), which completes the proof. Proofs are im
 \end{Proof}
 
 or
-\begin{Proofx}%[\textbf{Proof of Theorem 1:]
+\begin{Proofx}{thm:example}%[\textbf{Proof of Theorem 1:]
 Assume \( x > 0 \). Then \( x^2 > 0 \), which completes the proof. Proofs are important
 \end{Proofx}
 
@@ -188,7 +188,7 @@ There are no strict rules govering tables and figures. In the text, the figures 
 
 
 \medskip\noindent
-{\textbf{Some important guidelines for making tables}
+\textbf{Some important guidelines for making tables}
 \begin{itemize}
 \item avoid vertical lines
 \item enough space between rows
@@ -282,8 +282,8 @@ Try to avoid long lists of references. Explain why each reference is included an
 
 % To ensure accuracy, get them from MathSciNet whenever possible. Typeset them with BibTeX using JMVA's style file.
 
-\bibliographystyle{cas-model2-names}
-\bibliography{JMVA_temp/ref}
+% ref.bib contains a formatted thebibliography environment, not BibTeX records.
+\input{ref.bib}
 
 \section*{Appendix}
 
@@ -295,7 +295,7 @@ Instead of using the Appendix one can introduce a new section "Technical details
 \section*{Supplementary}
 {\textbf{Supplementary material} has to be uploaded separately:} The authors can put material in a Supplementary section which will not be reviewed.  Tables, figures, simulations and data analysis can be put into the supplementary section. Besides trivial calculations NO proofs should appear in this section.
 
-{\textbf{Computer programs} have to be put in this section if there are no links to existing sources. The idea is that readers should be able to perform the computations used in the article.
+\textbf{Computer programs} have to be put in this section if there are no links to existing sources. The idea is that readers should be able to perform the computations used in the article.
 
 \newpage
 \centerline{\Large{\textbf{Stylistic guidelines}}}
