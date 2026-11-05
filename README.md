@@ -33,14 +33,18 @@ The following is a brief, paraphrased checklist for convenience. Confirm details
 
 ## LaTeX templates
 
-This repository is designed for Elsevier CAS-style LaTeX submissions.
+The editors ask authors to use the **editor-approved JMVA LaTeX template**
+in this repository instead of Elsevier's standard template, so that manuscripts
+follow the journal's own formatting and stylistic requirements.
 
-Recommended template folders:
+The template uses Elsevier's single-column CAS class (`cas-sc`) with
+JMVA-specific formatting and guidance. Start with
+[JMVA_template.tex](JMVA_template.tex) and keep the sample bibliography
+[ref.bib](ref.bib) alongside it. Replace the sample title, author details, and
+references with those for your manuscript.
 
-- `templates/cas-sc.cls` — single-column CAS manuscript template.
-- `templates/cas-dc.cls` — double-column CAS manuscript template.
-- `templates/references.bib` — sample BibTeX database.
-- `templates/highlights.tex` — separate highlights file.
+[Browse the template repository](https://github.com/jmva-home/JMVA-templates)
+or [download the latest template (ZIP)](https://github.com/jmva-home/JMVA-templates/archive/refs/heads/main.zip).
 
 ## Submission package checklist
 
