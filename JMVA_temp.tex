@@ -1,0 +1,346 @@
+\documentclass[a4paper,fleqn]{cas-sc} % single-column CAS format
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,booktabs,color,epsfig,graphicx,hyperref,url}
+\usepackage{caption}
+\usepackage{booktabs}
+
+\usepackage[authoryear]{natbib}
+
+\usepackage{placeins}
+
+\shorttitle{Super shrinkage estimator}
+\shortauthors{Acca et~al.}
+
+
+\begin{document}
+
+\ExplSyntaxOn
+\cs_gset:Npn \__make_tbl_caption:nn #1#2
+  {
+    \parbox{\l_tbl_width_dim}
+    {
+      \rmfamily\small
+      \textbf{\color{scolor}#1:}~#2
+    }
+  }
+\ExplSyntaxOff
+
+\let\printorcid\relax
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\title[mode=title]{\phantom{\huge(}Logo from Elsevier and JMVA will be put by Elsevier}
+\title[mode=title]{\phantom{\huge(}}  %these title statements are used to reserve space for the journal's logo and other info
+\title[mode=title]{A super shrinkage estimator for growth curve analysis (no capital letters should be used, except in names)}
+
+\author[1]{Moihym A. Acca}
+\affiliation[1]{organization={Department of Statistics, North Carolina State University},
+  addressline={Raleigh, NC, 24569, USA: corrseponding author DvRl27@ncsu.edu}
+  }
+
+\author[2]{Jönyan P. Wuliaks}
+\affiliation[2]{organization={Department of Statistics, South Carolina State University},
+  addressline={Raleigh, NC, 27800, USA}
+}
+
+\author[3]{Brain J. Reikolamich}
+\affiliation[3]{ organization={Department of Statistics, Middle Carolina State University},
+  addressline={Raleigh, NC, 69527, USA}
+}
+
+\begin{keywords}[AMS 2020 subject classifications]
+primary 62H12\par
+secondary 62F12\par\medskip
+\textit{Keywords:}\par
+Domain adaptation\sep
+Global--local shrinkage\sep
+High-dimensional regression\sep
+Horseshoe prior\sep
+Normal-means problem
+\end{keywords}
+\begin{abstract}
+The abstract should be short, informative, and avoid external references as much as possible. \\\\Follows a list of a few keywords in alphabetical order, and Classification Codes, available for free from MathSciNet; see \url{mathscinet.ams.org/mathscinet/freeTools.html?version=2}.\\\\
+
+\noindent
+All authors of the paper should have contributed with theoretical results.\\\smallskip
+\end{abstract}
+
+\maketitle
+
+\renewcommand{\figurename}{Fig.}
+
+\theoremstyle{plain}% Theorem-like structures provided by amsthm.sty
+\newtheorem{theorem}{Theorem}
+\newtheorem{exa}{Example}
+\newtheorem{rem}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+
+
+\newenvironment{Proof}{\paragraph{\textbf{\upshape Proof:}}}{\hfill$\square$}
+\newenvironment{Proofx}{\paragraph{\textbf{\upshape Proof of Theorem \ref{}:}}}{\hfill$\square$}
+
+\def\E{\mbox{${\rm E}$}}
+\def\D{\mbox{${\rm D}$}}
+
+
+
+\begin{abstract}
+The abstract should be short, informative, and avoid external references as much as possible. Follows a list of a few keywords in alphabetical order, and then Classification Codes, available for free from MathSciNet; see \url{mathscinet.ams.org/mathscinet/freeTools.html?version=2}.
+\end{abstract}
+
+\section{Introduction\label{sec:1}}
+
+Start typing your introduction here. Put the work in relation to previously published results. Clearly state what is new. Include a short plan of the paper at the end, referring to sections. For example, the methods are given in Section~\ref{sec:2}. In Section~\ref{sec:3} are the results. Our concluding remarks are given in Section~\ref{sec:4}. Only use AI to check grammer, punctuation, spelling, and language. Do NOT use AI to structure your text. It should be a personal and intellectual introduction. Avoid explicitly describing the contribution of the paper; it is sufficient to inform the reader what is new
+
+\medskip
+For subsections, use the following
+\subsection*{\mdseries 1.1 {\sl This is about nothing}}
+
+\noindent\medskip
+Try to avoid three level subheadings.
+
+\section{Methods\label{sec:2}}
+
+Here are our methods. Often it is natural to define notion and notations in this section.
+
+\section{Results\label{sec:3}}
+
+Here are our results. The results should usually be presented as theorems, propositions, together with their proofs.
+
+\begin{theorem} Assume .....
+\end{theorem}
+
+Note that there are two types of proof environments.
+
+\begin{Proof}
+Assume \( x > 0 \). Then \( x^2 > 0 \), which completes the proof. Proofs are important
+\end{Proof}
+
+or
+\begin{Proofx}%[\textbf{Proof of Theorem 1:]
+Assume \( x > 0 \). Then \( x^2 > 0 \), which completes the proof. Proofs are important
+\end{Proofx}
+
+\medskip
+Other theorem-style environments are
+\begin{proposition} Assume .....
+\end{proposition}
+\begin{lemma} Assume .....
+\end{lemma}
+\begin{corollary} Assume .....
+\end{corollary}
+
+\smallskip
+\begin{definition}Assume ..... Note that text is upshaped.
+\end{definition}
+\begin{remark} Assume ..... Note that text is upshaped.
+\end{remark}
+\begin{example} Assume .....  Note that text is upshaped.
+\end{example}
+
+If possible, bundle assumptions.
+
+\begin{assumption} Here is one way of doing this:
+\begin{description}
+\item[{\rm A1}\phantom{A2}] Assume that
+\item[{\rm A2}\phantom{A1}] Assume that $X>Y$ 
+\end{description}
+\end{assumption}
+ 
+ or
+\begin{description}
+\item[{\rm A1:}\phantom{A2}] Assume that
+\item[{\rm A2:}\phantom{A1}] Assume that $X>Y$ 
+\end{description}
+
+or
+\begin{description}
+\item[{\rm (A1)}\phantom{A2}] Assume that
+\item[{\rm (A2)}\phantom{A1}] Assume that $X>Y$ 
+\end{description}
+\textbf{Equations}
+
+There are many ways to present equations. For example
+\begin{eqnarray}\label{eq1}
+Q&=&X+iX_2+jX_2+kX_3,\\\label{eq2}
+\quad i^2&=&j^2=k^2=ijk=-1.
+\end{eqnarray}
+Equations without number equal 
+\begin{eqnarray*}
+Q&=&X+iX_2+jX_2+kX_3,\\
+\quad i^2&=&j^2=k^2=ijk=-1.
+\end{eqnarray*}
+Only number equations if it is needed to refer to them. Multiline equations should usually aligned.\\
+
+\smallskip\noindent
+\textbf{Tables and Figures}
+
+There are no strict rules govering tables and figures. In the text, the figures should be referred to as Fig.\,\ref{figx}. A general recommendation for tables is to use as few horizontal and vertical lines as possible. However, one line under the heading and one line under the table should be used. The journal uses table headings. Table headings and figure captions should be self contained (within reasonable limits) so that readers can follow the presentation without consulting the main body of the text excessively.
+
+
+\medskip\noindent
+{\textbf{Some important guidelines for making tables}
+\begin{itemize}
+\item avoid vertical lines
+\item enough space between rows
+\item avoid cells (boxes), usually 2 horizontal lines are
+enough: above and below the table.. 
+\item avoid double horizontal lines
+\item do not highlight with bold font
+\item only use an appropriate number of digits
+
+
+\end{itemize}
+For an example of a normal sized table see Table \ref{tab1} and for a smaller table see Table~\ref{tab2}.
+\begin{table}[h]%% placement specifier]
+\caption{Average values of XXX for two treatments (dir=1, dir=2) and three conditions (AB,AC,BC) administrated three times ($t=0$, $t=1$, $t=2$) three times per year ($w=8$, $w=16$, $w=32$).} 
+\centering
+
+\smallskip
+\hrule
+\begin{tabular}{@{}rrrrcrrrcrrr@{}}\label{tab1}
+& \multicolumn{3}{c}{$w = 8$} & & \multicolumn{3}{c}{$w = 16$} &
+ & \multicolumn{3}{c}{$w = 32$}\\
+\cmidrule{2-4} \cmidrule{6-8} \cmidrule{10-12}
+& $\underline{\phantom{x}t=0\phantom{x}}$& $\underline{\phantom{x}t=1\phantom{x}}$&$\underline{\phantom{x}t=2\phantom{x}}$&& $\underline{\phantom{x}t=0\phantom{x}}$ & $\underline{\phantom{x}t=1\phantom{x}}$ & $\underline{\phantom{x}t=2\phantom{x}}$ && $\underline{\phantom{x}t=0\phantom{x}}$ & $\underline{\phantom{x}t=1\phantom{x}}$ & $\underline{\phantom{x}t=2\phantom{x}}$\\
+dir$=1$\\
+AB & 0.079 & 0.169 & 0.294 && 0.367 & 0.718 & 3.181 && -1.003 & -1.710 & -21.796\\
+AC & -0.865& 50.047& 5.938&& -9.071& 297.092& 46.214&& 4.359& 34.580& 76.916\\
+BC & 124.275& -50.961& -14.272&& 128.226& -630.545& -381.093&& -121.051& -137.121& -220.250\\
+dir$=2$\\
+AB & 0.035& 1.247& 0.211&& 0.359& -0.275& 2.176&& -1.299& -3.820& -1.278\\
+AC & -17.904& -37.111& 8.859&& -30.738& -9.595& -3.000&& -11.163& -5.710& -15.672\\
+BC & 105.551& 232.116& -94.735&& 100.249& 141.277& -259.732&& 52.574& 10.109& -140.213\\
+\end{tabular}
+
+\smallskip
+\hrule
+\end{table}
+%\FloatBarrier
+\begin{table}[H]%% placement specifier]
+\centering
+\begin{minipage}{10cm\linewidth=5cm}%\textwidth=5cm}
+%here one decides where to place the table
+\caption{Average values of XXX for two treatments (dir=1, dir=2) and three\\ conditions (AB,AC,BC), administrated three times ($t=0$, $t=1$, $t=2$) two
+ times\\ per year ($w=8$, $w=16$).}\label{tab2} 
+\centering
+
+\smallskip
+\begin{tabular}{@{}rrrrcrrrc@{}}
+\toprule[0.4pt]
+& \multicolumn{3}{c}{$w = 8$} & & \multicolumn{3}{c}{$w = 16$}\\
+\cmidrule{2-4} \cmidrule{6-8}
+& $\underline{\phantom{x}t=0\phantom{x}}$& $\underline{\phantom{x}t=1\phantom{x}}$&$\underline{\phantom{x}t=2\phantom{x}}$&& $\underline{\phantom{x}t=0\phantom{x}}$ & $\underline{\phantom{x}t=1\phantom{x}}$ & $\underline{\phantom{x}t=2\phantom{x}}$ \\
+%\cmidrule{2-2} \cmidrule{3-3} \cmidrule{4-4}%\midrule
+dir$=1$\\
+AB & 0.179 & 0.969 & 0.994 && 0.967 & 0.918 & 3.192 & \\
+AC & -0.715& 52.047& 5.958&& -9.971& 299.092& 48.214& \\
+BC & 119.275& -50.161& -14.172&& 148.226& -680.545& -391.093& \\
+dir$=2$\\
+AB & 1.135& 1.147& 0.251&& 0.399& -0.215& 1.176&\\
+AC & -29.907& -31.111& 9.859&& -33.738& -9.795& -3.100&\\
+BC & 125.551& 212.126& -54.765&& 102.359& 147.277& -250.722&\\
+\bottomrule[0.4pt]
+\end{tabular}
+
+\smallskip
+\end{minipage}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=3cm]{example-image-a}
+\caption{Figure Caption: This is not a B. Figure text should usually appear under \ldots}\label{figx}
+\end{figure}
+
+\section{Conclusions\label{sec:4}}
+
+Here are our conclusions.
+
+\section*{Acknowledgments}
+
+We thank Mr.~Nobody, Associate Editor and referees, as well as our financial sponsor HXLT452.
+
+\section*{References}
+There are several ways to include references into the article. Bibtex is recommended and the file "ref" has been created so that you can see how one can do. To refer to the content of the file use for instance
+\cite{anderson1993totally,andersson,lauritzen1996graphical,gratzer2002general} or \cite{drton2008iterative}. 
+\begin{itemize}
+\item
+Please do not abbreviate journal titles.
+\item
+Try to avoid long lists of references. Explain why each reference is included and focus on the main references.
+\end{itemize}
+
+% To ensure accuracy, get them from MathSciNet whenever possible. Typeset them with BibTeX using JMVA's style file.
+
+\bibliographystyle{cas-model2-names}
+\bibliography{JMVA_temp/ref}
+
+\section*{Appendix}
+
+Essential details needed to make the paper reasonably self contained can be presented here. The Appendix should always appear after the references.
+
+\medskip
+Instead of using the Appendix one can introduce a new section "Technical details" before the Acknowledgments.
+
+\section*{Supplementary}
+{\textbf{Supplementary material} has to be uploaded separately:} The authors can put material in a Supplementary section which will not be reviewed.  Tables, figures, simulations and data analysis can be put into the supplementary section. Besides trivial calculations NO proofs should appear in this section.
+
+{\textbf{Computer programs} have to be put in this section if there are no links to existing sources. The idea is that readers should be able to perform the computations used in the article.
+
+\newpage
+\centerline{\Large{\textbf{Stylistic guidelines}}}
+
+\noindent
+\begin{description}
+\item[$\bullet$] The length of an JMVA article is 15-25 pages. There exists a special track for young researchers where somewhat shorter contributions can be accepted (see below).
+\item[$\bullet$]  Number only those equations that are referred to in the text.
+\item[$\bullet$] Enumerations should list the first and last element only, i.e., write $\{1, \ldots, n\}$ (NOT $\{1, 2, \ldots , n\}$). Also do not use $\cdots$ in enumerations. Write $i\in\{1,\ldots, n\}$ instead of $i=1,\ldots, n$.
+\item[$\bullet$] Respect the following priority rules for fences $[\{()\}]$ unless the fences have a special meaning, i.e., write $\E{X(t)}$ (some authors use $\E[X(t)]$ which is acceptable). If you refer to the set ${1,\ldots, n}$, don't write $(1,\ldots, n)$, because in the latter two contexts, $\{\}$ and $()$ have conventional meanings.
+\item[$\bullet$] Use $^\top$ for transposition (NOT $'$, $^T$, $^\tau$ or $^\dagger$) and $\ln$ for $log$, unless you mean $log_{10}$ .
+\item[$\bullet$] Symbols like $\sup$, $\inf$, $\max$, $\min$, E, Var, Cov, Corr, diag, trace (or tr), etc.~should be in Roman characters (NOT in italics).
+\item[$\bullet$] Use ${\rm P}$ for probability, so that it prints "{\rm P}" in Roman characters.
+\item[$\bullet$] Avoid the symbol "l", always use $\ell$ if you need an "ell".
+\item[$\bullet$] "i.e." and "e.g." should be preceded and followed by a comma:  see, e.g.,
+\item[$\bullet$] Vectors should usually be interpreted as column vectors (if it is not a coordinate free presentation).
+\item[$\bullet$] Bold upper and lower cases can be used for matrices and vectors, respectively.
+\item[$\bullet$] "cf." means "compare to", NOT "refer to". If you mean "refer to", write "see".
+\item[$\bullet$] Avoid in-line fractions; if you need one, write them in the form $a/b$ rather than $\frac{a}{b}$.
+\item[$\bullet$] Concerning the references and the bibliography:
+Papers should be referred by AUTHOR (YEAR), where appropriate;
+in lists of references, order papers chronologically, oldest first, (use "cite", e.g., \cite{anderson1993totally} or \cite{andersson,lauritzen1996graphical,gratzer2002general}); "et al." should be in Roman characters, NOT in italic; the bibliography should list the papers in alphabetical order:
+\item[$\bullet$] When referring to the software R, always use \textsf{R}, even in references. Packages should be typeset as \texttt{...}
+\end{description}
+
+\newpage
+\centerline{\Large{\textbf{Young researcher track}}}
+\smallskip
+Journal of Multivariate Analysis understand the challenge for young researchers to get published in a reputable journal.
+
+As a young researcher with a limited network it is often difficult to write a competitive article that contains all the elements as papers by those who have been in the field for many years. In JMVA, often an article consists of three parts: theoretical results, simulations and some kind of illustrative data analysis. This can be quite demanding for young researchers.
+
+The Editor-in-Chief and Executive Editor are now accepting submissions with good theoretical results from young researchers. If these results are complemented with data analysis and simulations, even better, but it is not absolutely necessary.
+
+
+There are some restrictions:
+\begin{description}
+\item[$\bullet$] The young researcher should be the main/corresponding author of the paper.
+\item[$\bullet$]  There should be a maximum of two authors (so only one other co-author) – this is to help younger researchers become more independent.
+\item[$\bullet$]  The young researcher should be no older than $40$ years old at the time of submission.
+\item[$\bullet$]  As with regular submissions, please keep in mind that the length of the paper should be less than 26 pages but can be somewhat shorter than $15$ pages.
+\item[$\bullet$] If you meet all these criteria, you are welcome to submit your paper via Editorial Manager.
+\end{description}
+At the “Select Article Type” please choose: “Young Researcher Paper”
+
+We hope that by easing the criteria for young researchers, it will lead to new papers from promising young researchers and rising stars in the field of multivariate analysis.
+\end{document}
+
