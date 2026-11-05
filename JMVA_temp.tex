@@ -282,8 +282,11 @@ Try to avoid long lists of references. Explain why each reference is included an
 
 % To ensure accuracy, get them from MathSciNet whenever possible. Typeset them with BibTeX using JMVA's style file.
 
+% Historical note from the previous workaround:
 % ref.bib contains a formatted thebibliography environment, not BibTeX records.
-\input{ref.bib}
+% ref.bib now contains raw BibTeX entries, processed using the journal's style.
+\bibliographystyle{cas-model2-names}
+\bibliography{ref}
 
 \section*{Appendix}
 
